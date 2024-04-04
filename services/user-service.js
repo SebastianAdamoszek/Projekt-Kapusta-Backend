@@ -15,11 +15,15 @@ const updateToken = ({ email, token }) => {
 const updateUserBalance = ({ _id, balance }) => {
   return User.findOneAndUpdate({ _id }, { $set: { balance } });
 };
+const downloadUserBalance = ({ _id, balance }) => {
+  return User.findOneAndUpdate({ _id }, { $set: { balance } });
+};
 
 
 module.exports = {
   updateToken,
   createUser,
   findUserByEmail,
-  updateUserBalance
+  updateUserBalance,
+  downloadUserBalance,
 };
