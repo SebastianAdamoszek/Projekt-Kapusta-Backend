@@ -5,13 +5,18 @@ const logoutUser = async (req, res, next) => {
 
   try {
     const user = await findUserByEmail({ email });
-    console.log(user);
+    console.log("wylogowany", user);
     if (user) {
-      user.token = null;
       await user.save();
-      res
-        .status(204)
-        .json({ status: "No content", code: 204, message: "logout succesful" });
+      res.status(200).json({
+        message: "logout succesful",
+        token: user.token,
+        balance: user.balance,
+        user: {
+          email: user.email,
+          name: user.name,
+        },
+      });
     } else {
       res
         .status(401)

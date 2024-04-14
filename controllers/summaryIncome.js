@@ -10,10 +10,11 @@ const summaryIncome = async (req, res) => {
       userId: userId,
       operationType: "income",
     });
-    console.log("Znalezione przychody:", income);
 
     // Oblicz sumę przychodów
     const sum = income.reduce((total, item) => total + item.amount, 0);
+    console.log("Suma przychodów:", sum);
+
 
     // Zwróć sumę przychodów w odpowiedzi
     return res.status(200).json({ summaryIncome: sum });

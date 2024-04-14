@@ -5,10 +5,11 @@ const { generateToken } = require("../config/passport-jwt");
 const loginUser = async (req, res, next) => {
   const { password, email } = req.body;
 
-  console.log(req.body)
+  console.log(req.body);
 
   try {
     const user = await findUserByEmail({ email });
+    console.log('logowanie',user);
 
     if (!user) {
       await updateToken;
@@ -38,7 +39,6 @@ const loginUser = async (req, res, next) => {
       user: {
         email: user.email,
         name: user.name,
-        
       },
     });
   } catch (e) {

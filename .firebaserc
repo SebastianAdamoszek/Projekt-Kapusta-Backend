@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "default": "kapusta-backend"
+  },
+  "targets": {},
+  "etags": {
+    "kapusta-backend": {
+      "extensionInstances": {}
+    }
+  }
+}

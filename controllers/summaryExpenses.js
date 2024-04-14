@@ -10,10 +10,11 @@ const summaryExpenses = async (req, res) => {
       userId: userId,
       operationType: "expenses",
     });
-    console.log("Znalezione wydatki:", expenses);
 
     // Oblicz sumę wydatków
     const sum = expenses.reduce((total, expense) => total + expense.amount, 0);
+    console.log("Suma wydatków:", sum);
+
 
     // Zwróć sumę wydatków w odpowiedzi
     return res.status(200).json({ summaryExpenses: sum });
